@@ -1,5 +1,5 @@
 import { loadRemoteModule } from '@angular-architects/native-federation';
-import {Component, ElementRef, inject, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, inject, Input, Injector, OnInit} from '@angular/core';
 import {initWrapperConfig} from "../shared/wrapper-config/wrapper-config.interface";
 import {CommonModule} from "@angular/common";
 
@@ -13,13 +13,15 @@ import {CommonModule} from "@angular/common";
 export class WrapperComponent implements OnInit {
   elm = inject(ElementRef)
   @Input() config = initWrapperConfig;
-  constructor() {
+  constructor(private readonly injector: Injector) {
 
   }
   async ngOnInit(): Promise<void> {
     const {exposedModule, remoteName, elementName} = this.config;
 
-    await loadRemoteModule('mfe1', './WebComponents');
+    const m = await loadRemoteModule('mfe1', './WebComponents');
+    new m.AppComponent(this.injector).ngOnInit();
+
     const root = document.createElement('web-components');
     this.elm.nativeElement.appendChild(root);
   }
