@@ -17,6 +17,10 @@ export class HomeComponent {
     this.router.navigateByUrl('packages/new-package');
   }
 
+  navigateToApp(): void {
+    this.router.navigateByUrl('app');
+  }
+
   navigateTo() {
     this.router.navigateByUrl('flights/new-flight');
   }

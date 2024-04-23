@@ -11,11 +11,11 @@ export const APP_ROUTES: Routes = [
   },
   {
     path: 'packages',
-    loadChildren: () => loadRemoteModule('mf-angular-16', './AppComponent').then((m) => m.AppModule)
+    loadChildren: () => loadRemoteModule('angular16', './routes').then((m) => m.routes)
   },
   {
-    path: 'packages-1',
-    loadChildren: () => loadRemoteModule('mf-angular-16', './routes').then((m) => m.AppRoutingModule)
+    path: 'app',
+    loadChildren: () => loadRemoteModule('angular16', './Holidays').then((m) => m.HolidaysComponent)
   },
   {
     path: '',

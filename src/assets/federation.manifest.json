@@ -1,4 +1,4 @@
 {
 	"mfe1": "http://localhost:4201/remoteEntry.json",
-  "mf-angular-16": "http://localhost:4301/remoteEntry.json"
+  "angular16": "http://localhost:4204/remoteEntry.json"
 }
